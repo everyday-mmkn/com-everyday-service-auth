@@ -89,7 +89,7 @@ namespace Com.Bateeq.Service.Auth.Test.Services
                     id = 1,
                     unit = new UnitViewModel()
                     {
-                        name = "err"
+                        Name = "err"
                     }
                 }
             };
