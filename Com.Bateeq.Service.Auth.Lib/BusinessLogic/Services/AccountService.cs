@@ -38,6 +38,7 @@ namespace Com.Bateeq.Service.Auth.Lib.BusinessLogic.Services
             }
             foreach (var item2 in model.Stores)
             {
+                item2.Id = 0;
                 EntityExtension.FlagForCreate(item2, IdentityService.Username, UserAgent);
             }
             model.Password = SHA1Encrypt.Hash(model.Password);
@@ -88,7 +89,6 @@ namespace Com.Bateeq.Service.Auth.Lib.BusinessLogic.Services
 
             query = query.Select(x => new Account()
             {
-
                 AccountProfile = x.AccountProfile,
                 AccountRoles = x.AccountRoles,
                 Active = x.Active,
@@ -171,6 +171,7 @@ namespace Com.Bateeq.Service.Auth.Lib.BusinessLogic.Services
             foreach (var item in updatedstore)
             {
                 var store = data.Stores.SingleOrDefault(x => x.Id == item.Id);
+                store.Id = 0;
 
                 EntityExtension.FlagForUpdate(store, IdentityService.Username, UserAgent);
             }
@@ -178,11 +179,12 @@ namespace Com.Bateeq.Service.Auth.Lib.BusinessLogic.Services
             foreach (var item in addedstore)
             {
                 item.AccountId = id;
+                item.Id = 0;
                 EntityExtension.FlagForCreate(item, IdentityService.Username, UserAgent);
                 DbContext.Set<Store>().Add(item);
             }
 
-            foreach (var item in deletedRoles)
+            foreach (var item in deletedstore)
             {
                 EntityExtension.FlagForDelete(item, IdentityService.Username, UserAgent, true);
             }
