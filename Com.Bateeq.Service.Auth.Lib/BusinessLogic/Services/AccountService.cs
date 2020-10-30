@@ -146,7 +146,7 @@ namespace Com.Bateeq.Service.Auth.Lib.BusinessLogic.Services
 
             var updatedstore = model.Stores.Where(x => data.Stores.Any(y => y.Id == x.Id));
             var addedstore = model.Stores.Where(x => !data.Stores.Any(y => y.Id == x.Id));
-            var deletedstore = data.Stores.Where(x => !model.AccountRoles.Any(y => y.Id == x.Id));
+            var deletedstore = data.Stores.Where(x => !model.Stores.Any(y => y.Id == x.Id));
 
             foreach (var item in updatedRoles)
             {
@@ -171,8 +171,6 @@ namespace Com.Bateeq.Service.Auth.Lib.BusinessLogic.Services
             foreach (var item in updatedstore)
             {
                 var store = data.Stores.SingleOrDefault(x => x.Id == item.Id);
-                store.Id = 0;
-
                 EntityExtension.FlagForUpdate(store, IdentityService.Username, UserAgent);
             }
 
