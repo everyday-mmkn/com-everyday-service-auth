@@ -42,7 +42,7 @@ namespace Com.Bateeq.Service.Auth.Lib.ViewModels
             {
                 foreach (PermissionViewModel permission in permissions)
                 {
-                    if (string.IsNullOrWhiteSpace(permission.unit.name))
+                    if (string.IsNullOrWhiteSpace(permission.unit.Name))
                     {
                         Count++;
                         permissionError += "{ unit: 'Unit is required' }, ";

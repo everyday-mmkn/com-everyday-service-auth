@@ -8,6 +8,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Com.Bateeq.Service.Auth.WebApi", "Com.Bateeq.Service.Auth.WebApi\Com.Bateeq.Service.Auth.WebApi.csproj", "{0CE2D227-CBCB-4D04-A66E-2A8FAB5A2C24}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Com.Bateeq.Service.Auth.Test", "Com.Bateeq.Service.Auth.Test\Com.Bateeq.Service.Auth.Test.csproj", "{247D7758-9EA8-4BE6-91BD-07DA0056C4D9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FD328A1A-E14A-4EF5-B9B2-6A73AC4A05D6} = {FD328A1A-E14A-4EF5-B9B2-6A73AC4A05D6}
+		{0CE2D227-CBCB-4D04-A66E-2A8FAB5A2C24} = {0CE2D227-CBCB-4D04-A66E-2A8FAB5A2C24}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -75,11 +75,11 @@ namespace Com.Bateeq.Service.Auth.Test.DataUtils
                         unit = new UnitViewModel()
                         {
                             _id = 1,
-                            name = "name",
-                            code = "code",
-                            division = new DivisionViewModel()
+                            Name = "name",
+                            Code = "code",
+                            Division = new DivisionViewModel()
                             {
-                                name = "divName"
+                                Name = "divName"
                             }
                         }
                     }

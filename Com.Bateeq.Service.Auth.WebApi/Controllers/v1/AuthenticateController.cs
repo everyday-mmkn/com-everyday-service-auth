@@ -72,9 +72,9 @@ namespace Com.Bateeq.Service.Auth.WebApi.Controllers.v1
 
                     string jsonRes = "{";
 
-                    foreach(var item in viewModel.roles.SelectMany(x => x.permissions).GroupBy(x => x.unit.code).Select(g => g.First()))
+                    foreach(var item in viewModel.roles.SelectMany(x => x.permissions).GroupBy(x => x.unit.Code).Select(g => g.First()))
                     {
-                        jsonRes = jsonRes + "'" + item.unit.code + "'" + " : " + item.permission + ",";
+                        jsonRes = jsonRes + "'" + item.unit.Code + "'" + " : " + item.permission + ",";
                     }
                     jsonRes = jsonRes.Remove(jsonRes.Length - 1) + "}";
 
@@ -95,7 +95,14 @@ namespace Com.Bateeq.Service.Auth.WebApi.Controllers.v1
                     }
 
 
-                    jsonStore = jsonStore.Remove(jsonStore.Length - 1) + "]";
+                    if (jsonStore == "[")
+                    {
+                        jsonStore = jsonStore + "]";
+                    }
+                    else
+                    {
+                        jsonStore = jsonStore.Remove(jsonStore.Length - 1) + "]";
+                    }
 
                     var jsonStoreObject = JArray.Parse(jsonStore);
 

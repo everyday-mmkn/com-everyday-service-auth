@@ -21,12 +21,12 @@ namespace Com.Bateeq.Service.Auth.Test.Helper
             ValidateService service = new ValidateService(serviceProviderMock.Object);
             UnitViewModel stage = new UnitViewModel()
             {
-                code = "Code",
-                division = new DivisionViewModel()
+                Code = "Code",
+                Division = new DivisionViewModel()
                 {
-                    name = "Name"
+                    Name = "Name"
                 },
-                name = "Name"
+                Name = "Name"
             };
 
             //Act

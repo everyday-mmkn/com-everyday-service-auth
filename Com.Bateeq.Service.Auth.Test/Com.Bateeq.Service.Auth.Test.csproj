@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Com.Bateq.Service.Auth.WebApi\Com.Bateeq.Service.Auth.WebApi.csproj" />
+    <ProjectReference Include="..\Com.Bateeq.Service.Auth.WebApi\Com.Bateeq.Service.Auth.WebApi.csproj" />
   </ItemGroup>
 
 </Project>
