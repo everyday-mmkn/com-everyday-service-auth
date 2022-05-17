@@ -28,7 +28,7 @@ namespace Com.Bateeq.Service.Auth.Test.Services
             model.Username += "[updated]";
             return model;
         }
-
+        [Fact]
         public override async void Should_Success_Create_Data()
         {
             var service = GetService(GetServiceProvider().Object, _dbContext(GetCurrentMethod()));
@@ -108,6 +108,15 @@ namespace Com.Bateeq.Service.Auth.Test.Services
                         Role = new Role(){
                             Name="Name",UId="UId",Id =2, Description="Description"
                         }
+                    }
+                   
+                },
+                Stores = new List<Store>()
+                {
+                    new Store()
+                    {
+                        Name="1",
+                        Code="1"
                     }
                 }
             };
