@@ -56,6 +56,7 @@ namespace Com.Bateeq.Service.Auth.Lib.AutoMapperProfiles
                 .ForPath(d => d.isLocked, opt => opt.MapFrom(s => s.IsLocked))
                 .ForPath(d => d.profile, opt => opt.MapFrom(s => s.AccountProfile))
                 .ForPath(d => d.roles, opt => opt.MapFrom(s => s.AccountRoles))
+                .ForPath(d => d.stores, opt => opt.MapFrom(s => s.Stores))
                 .ReverseMap();
         }
     }

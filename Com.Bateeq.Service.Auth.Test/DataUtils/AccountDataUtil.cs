@@ -39,6 +39,14 @@ namespace Com.Bateeq.Service.Auth.Test.DataUtils
                             Description="Description"
                         },
                     }
+                },
+                Stores= new List<Store>()
+                {
+                    new Store()
+                    {
+                        Name="Name",
+                        Code="Code"
+                    }
                 }
             };
         }
@@ -60,7 +68,8 @@ namespace Com.Bateeq.Service.Auth.Test.DataUtils
                     gender = "gender",
                     lastname = "lastname"
                 },
-                roles = new List<RoleViewModel>()
+                roles = new List<RoleViewModel>(),
+                stores= new List<StoreViewModel>()
             };
         }
     }

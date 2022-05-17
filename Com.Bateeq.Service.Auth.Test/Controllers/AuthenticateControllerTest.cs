@@ -68,11 +68,21 @@ namespace Com.Bateeq.Service.Auth.Test.Controllers
                 RoleUId = "RoleUId",
                 UId = "UId"
             });
+            accountModel.Stores.Add(new Store()
+            {
+                Name="name",
+                Code="code"
+            });
             mocks.Secret.Setup(s => s.SecretString).Returns("secretsecretsecret");
             mocks.Service.Setup(s => s.Authenticate(It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync(accountModel);
             var roleVM = roleDataUtil.GetNewViewModel();
             var accountVM = accountDataUtil.GetNewViewModel();
             accountVM.roles.Add(roleVM);
+            accountVM.stores.Add(new StoreViewModel()
+            {
+                name = "name",
+                code = "code"
+            });
             mocks.Mapper.Setup(s => s.Map<AccountViewModel>(It.IsAny<Account>())).Returns(accountVM);
             AuthenticateController controller = GetController(mocks);
             var result = await controller.Post(new LoginViewModel(){

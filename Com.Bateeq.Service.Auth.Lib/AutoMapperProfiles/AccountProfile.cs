@@ -10,6 +10,7 @@ namespace Com.Bateeq.Service.Auth.Lib.AutoMapperProfiles
     {
         public AccountProfile() : base()
         {
+
             CreateMap<Models.AccountProfile, AccountProfileViewModel>()
                 .ForPath(d => d.firstname, opt => opt.MapFrom(s => s.Firstname))
                 .ForPath(d => d.gender, opt => opt.MapFrom(s => s.Gender))
@@ -43,9 +44,15 @@ namespace Com.Bateeq.Service.Auth.Lib.AutoMapperProfiles
                 .ForPath(d => d.isLocked, opt => opt.MapFrom(s => s.IsLocked))
                 .ForPath(d => d.profile, opt => opt.MapFrom(s => s.AccountProfile))
                 .ForPath(d => d.roles, opt => opt.MapFrom(s => s.AccountRoles))
+                .ForPath(d => d.stores, opt => opt.MapFrom(s => s.Stores))
                 .ReverseMap();
 
-            
+
+            CreateMap<Store, StoreViewModel>()
+                .ForPath(d => d.name, opt => opt.MapFrom(s => s.Name))
+                .ForPath(d => d.Id, opt => opt.MapFrom(s => s.Id))
+                .ForPath(d => d.code, opt => opt.MapFrom(s => s.Code))
+                .ReverseMap();
         }
     }
 }
