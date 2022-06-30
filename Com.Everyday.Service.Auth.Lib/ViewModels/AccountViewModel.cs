@@ -28,6 +28,7 @@ namespace Com.Everyday.Service.Auth.Lib.ViewModels
 
             if (this._id.Equals(0) && string.IsNullOrWhiteSpace(this.password))
                 yield return new ValidationResult("Password is required", new List<string> { "password" });
+
             else if (this._id.Equals(0) && this.confirmPassword!=password)
                 yield return new ValidationResult("Confirm Password is different from password", new List<string> { "confirmPassword" });
 
