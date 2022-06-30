@@ -114,17 +114,21 @@ namespace Com.Everyday.Service.Auth.Lib.BusinessLogic.Services
 
                 EntityExtension.FlagForUpdate(permission, IdentityService.Username, UserAgent);
             }
-
-            foreach(var item in addedPermissions)
+            List<Permission> addPermissions = new List<Permission>();
+            foreach(var item1 in addedPermissions)
             {
-                item.RoleId = id;
-                EntityExtension.FlagForCreate(item, IdentityService.Username, UserAgent);
+                item1.RoleId = id;
+                EntityExtension.FlagForCreate(item1, IdentityService.Username, UserAgent);
+                addPermissions.Add(item1);
+            }
+            foreach(var item in addPermissions)
+            {
                 data.Permissions.Add(item);
             }
 
-            foreach (var item in deletedPermissions)
+            foreach (var item2 in deletedPermissions)
             {
-                EntityExtension.FlagForDelete(item, IdentityService.Username, UserAgent, true);
+                EntityExtension.FlagForDelete(item2, IdentityService.Username, UserAgent, true);
             }
 
             EntityExtension.FlagForUpdate(data, IdentityService.Username, UserAgent);
