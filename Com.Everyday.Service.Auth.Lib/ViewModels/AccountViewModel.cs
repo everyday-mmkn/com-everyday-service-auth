@@ -13,6 +13,7 @@ namespace Com.Everyday.Service.Auth.Lib.ViewModels
     {
         public string username { get; set; }
         public string password { get; set; }
+        public string confirmPassword { get; set; }
         public bool isLocked { get; set; }
         public AccountProfileViewModel profile { get; set; }
         public List<RoleViewModel> roles { get; set; }
@@ -27,6 +28,9 @@ namespace Com.Everyday.Service.Auth.Lib.ViewModels
 
             if (this._id.Equals(0) && string.IsNullOrWhiteSpace(this.password))
                 yield return new ValidationResult("Password is required", new List<string> { "password" });
+
+            else if (this._id.Equals(0) && this.confirmPassword!=password)
+                yield return new ValidationResult("Confirm Password is different from password", new List<string> { "confirmPassword" });
 
             if (this.profile == null || string.IsNullOrWhiteSpace(this.profile.firstname))
                 yield return new ValidationResult("{ firstname: 'First Name is required' }", new List<string> { "profile" });
