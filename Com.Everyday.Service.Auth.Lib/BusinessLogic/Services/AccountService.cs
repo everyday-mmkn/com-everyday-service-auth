@@ -144,9 +144,9 @@ namespace Com.Everyday.Service.Auth.Lib.BusinessLogic.Services
             var addedRoles = model.AccountRoles.Where(x => !data.AccountRoles.Any(y => y.RoleId == x.RoleId));
             var deletedRoles = data.AccountRoles.Where(x => !model.AccountRoles.Any(y => y.RoleId == x.RoleId));
 
-            var updatedstore = model.Stores.Where(x => data.Stores.Any(y => y.Id == x.Id));
-            var addedstore = model.Stores.Where(x => !data.Stores.Any(y => y.Id == x.Id));
-            var deletedstore = data.Stores.Where(x => !model.Stores.Any(y => y.Id == x.Id));
+            var updatedstore = model.Stores.Where(x => data.Stores.Any(y => y.Code == x.Code));
+            var addedstore = model.Stores.Where(x => !data.Stores.Any(y => y.Code == x.Code));
+            var deletedstore = data.Stores.Where(x => !model.Stores.Any(y => y.Code == x.Code));
 
             foreach (var item in updatedRoles)
             {
